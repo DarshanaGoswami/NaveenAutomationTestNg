@@ -7,19 +7,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseClass {
 
 	public WebDriver driver; // global declaration of driver
-
+	public Properties prop; //global declaration of properties
+	
 	public void initializeDriver() throws IOException { // method to initialize
 
 		// to read the data from data.properties
-		FileInputStream fs = new FileInputStream(
-				"C:\\Users\\darsh\\eclipse-workspace\\SeleniumTestngFinal\\src\\main\\java\\Resources\\data.properties");
+		FileInputStream fs = new FileInputStream
+				(System.getProperty("user.dir")+"\\src\\main\\java\\Resources\\data.properties");
 
 		// access data.properties
-		Properties prop = new Properties();
+		prop = new Properties();
 		prop.load(fs);
 
 		String browserName = prop.getProperty("browser");
@@ -41,6 +43,14 @@ public class BaseClass {
 			System.out.println("please choose proper browser");
 		}
 
+	}
+	
+	@BeforeMethod
+	public void launchBrowserandURL() throws IOException {
+		
+		initializeDriver();
+		driver.get(prop.getProperty("url"));
+		
 	}
 
 }

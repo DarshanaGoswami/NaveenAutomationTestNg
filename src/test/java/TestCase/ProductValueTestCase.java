@@ -8,25 +8,24 @@ import org.testng.annotations.Test;
 //import PageObjectModel.LoginPageObjects;
 import PageObjectModel.ProductPageObjects;
 import Resources.BaseClass;
+import Resources.constants;
 
 public class ProductValueTestCase extends BaseClass {
 
 	@Test
 	public void comparision() throws IOException, InterruptedException {
 
-		initializeDriver();
-		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
-
+		
 		ProductPageObjects ppo = new ProductPageObjects(driver);
 		
 		Thread.sleep(3000);
 
 		// iphone
-		ppo.searchprod().sendKeys("iphone");
+		ppo.searchprod().sendKeys(constants.searchproductone);
 		ppo.product().click();
 		String IphonePrice= ppo.getpriceOne().getText();
 		System.out.println("actual price:"+ IphonePrice);
-		
+
 		 //split
 		String[] spl = IphonePrice.split("\\s+");
 		System.out.println("split method:" + Arrays.toString(spl));
@@ -42,7 +41,7 @@ public class ProductValueTestCase extends BaseClass {
 		ppo.clearsearch().clear();
 		
 		// samsung
-		ppo.searchprod().sendKeys("Samsung tab");
+		ppo.searchprod().sendKeys(constants.searchproducttwo);
 		ppo.product().click();
 		String SamsungPrice= ppo.getpricetwo().getText();
 		System.out.println("actual price:"+ SamsungPrice);
