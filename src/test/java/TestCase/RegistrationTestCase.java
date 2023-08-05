@@ -1,32 +1,36 @@
 package TestCase;
 
 import java.io.IOException;
+
 import org.testng.annotations.Test;
-import PageObjectModel.LoginPageObjects;
+
 import PageObjectModel.RegistrationPageObjects;
+
 import Resources.BaseClass;
-import Resources.constants;
 
 public class RegistrationTestCase extends BaseClass {
 
 	@Test
-	public void verifySignup() throws IOException, InterruptedException {
+	public void verifyRegister() throws IOException {
 
-		LoginPageObjects lpo = new LoginPageObjects(driver);
-		lpo.clickonRegistration().click();
+		initializeDriver();
+		driver.get("https://naveenautomationlabs.com/opencart/");
 
-		Thread.sleep(3000);
+		RegistrationPageObjects obj = new RegistrationPageObjects(driver);
 
-		RegistrationPageObjects rpo = new RegistrationPageObjects(driver);
+		//driver.manage().window().maximize();
 
-		rpo.enterFirstname().sendKeys(constants.firstname);
-		rpo.enterLastname().sendKeys(constants.lastname);
-		rpo.enterEmail().sendKeys(constants.enteremailtwo);
-		rpo.enterPhone().sendKeys(constants.enterphone);
-		rpo.enterPassword().sendKeys(constants.passwordtwo);
-		rpo.ConfirmPassword().sendKeys(constants.confirmpasswordtwo);
-		rpo.agree().click();
+		obj.NavigatetoMyAccount().click();
+		obj.NevigatetoRegister().click();
+		obj.FirstName().sendKeys("darshana");
+		obj.LastName().sendKeys("goswami");
+		obj.Email().sendKeys("info.darshna@gmail.com");
+		obj.telephone().sendKeys("7878787878");
+		obj.password().sendKeys("Test@321");
+		obj.Confirmpassword().sendKeys("Test@321");
+		obj.RadioBtn().click();
+		obj.checkbox().click();
+		obj.submit().click();
 
 	}
-
 }

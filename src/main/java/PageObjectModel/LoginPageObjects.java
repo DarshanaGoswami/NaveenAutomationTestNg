@@ -5,40 +5,40 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPageObjects {
-	
-	public WebDriver driver; //this driver dont have scope
-	
-	private By email=By.xpath("//input[@name='email']"); 
-	private By password=By.xpath("//input[@name='password']");
-	private By login=By.xpath("//input[@value='Login']");
-	private By register=By.xpath("//a[@class='btn btn-primary']");
-	
-	
-	
-	
-	public LoginPageObjects(WebDriver driver2) {
-		this.driver=driver2;
-		
+
+
+		public WebDriver driver;
+
+		private By NevigateAccount=By.xpath("(//i[@class='fa fa-user'])");
+		private By NevigateToLogin=By.xpath("//a[contains(text(),'Login')]");
+		private By EmailId=By.xpath("//input[@name='email']");
+		private By Password=By.xpath("//input[@name='password']");
+		private By Submit=By.xpath("//input[@type='submit']");
+
+
+
+		public LoginPageObjects(WebDriver driver2) {
+			this.driver=driver2;
+		}
+		public WebElement NevigateAccount() {
+			return driver.findElement(NevigateAccount);
+
+		}
+		public WebElement NevigateToLogin() {
+			return driver.findElement(NevigateToLogin);
+
+		}
+		public WebElement EmailId() {
+			return driver.findElement(EmailId);
+
+		}
+		public WebElement Password() {
+			return driver.findElement(Password);
+
+		}
+		public WebElement Submit() {
+			return driver.findElement(Submit);
+
+		}
+
 	}
-	
-	public WebElement enterEmail() { //returns webelement not xpath
-		
-		return driver.findElement(email);
-		
-	}
-	public WebElement enterpassword() {
-		
-		return driver.findElement(password);
-		
-	}
-	public WebElement clicklogin() {
-		
-		return driver.findElement(login);
-		
-	}
-	public WebElement clickonRegistration() {
-		
-		return driver.findElement(register);
-	}
-	
-}

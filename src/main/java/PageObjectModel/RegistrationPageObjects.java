@@ -4,69 +4,73 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class RegistrationPageObjects {
+public class RegistrationPageObjects{
 
 	public WebDriver driver;
+	
+	private By NavigatetoMyAccount=By.xpath("//i[@class='fa fa-user']");
+	private By NevigatetoRegister=By.xpath("//a[contains(text(),'Register')]");
+	private By FirstName=By.xpath("//input[@name='firstname']");
+	private By LastName=By.xpath("//input[@name='lastname']");
+	private By Email=By.xpath("//input[@name='email']");
+	private By telephone=By.xpath("//input[@name='telephone']");
+	private By password=By.xpath("//input[@name='password']");
+	private By Confirmpassword=By.xpath("//input[@name='confirm']");
+	private By RadioBtn=By.xpath("//input[@name='newsletter']");
+	private By checkbox=By.xpath("//input[@type='checkbox']");
+	private By submit=By.xpath("//input[@type='submit']");
+	
+	
+	
+	
 
-	private By firstname = By.xpath("//input[@name='firstname']");
-	private By lastname = By.xpath("//input[@name='lastname']");
-	private By email = By.xpath("//input[@name='email']");
-	private By phone = By.xpath("//input[@name='telephone']");
-	private By password = By.xpath("//input[@name='password']");
-	private By confirm = By.xpath("//input[@name='confirm']");
-	private By agree=By.xpath("//input[@name='agree']");
-	private By cont= By.xpath("//input[@value='Continue']");
-	// private By cont=By.xpath("//input[@class='btn btn-primary']"
+
+
+
 
 	public RegistrationPageObjects(WebDriver driver2) {
 		this.driver=driver2;
 	}
 
-	public WebElement enterFirstname() { // returns webelement not xpath
-
-		return driver.findElement(firstname);
-
+	public WebElement NavigatetoMyAccount() {
+		return driver.findElement(NavigatetoMyAccount);
+		
 	}
-
-	public WebElement enterLastname() { // returns webelement not xpath
-
-		return driver.findElement(lastname);
-
+	
+	public WebElement NevigatetoRegister() {
+		return driver.findElement(NevigatetoRegister);
+		
 	}
-
-	public WebElement enterEmail() { // returns webelement not xpath
-
-		return driver.findElement(email);
-
+	public WebElement FirstName() {
+		return driver.findElement(FirstName);
+		
 	}
-
-	public WebElement enterPhone() { // returns webelement not xpath
-
-		return driver.findElement(phone);
-
+	public WebElement LastName() {
+		return driver.findElement(LastName);
+		
 	}
-
-	public WebElement enterPassword() { // returns webelement not xpath
-
+	public WebElement Email() {
+		return driver.findElement(Email);
+		
+	}
+	public WebElement telephone() {
+		return driver.findElement(telephone);
+		
+	}
+	public WebElement password() {
 		return driver.findElement(password);
-
+		
 	}
-
-	public WebElement ConfirmPassword() { // returns webelement not xpath
-
-		return driver.findElement(confirm);
-
+	public WebElement Confirmpassword() {
+		return driver.findElement(Confirmpassword);
+		}
+	public WebElement RadioBtn() {
+		return driver.findElement(RadioBtn);
+		}
+	public WebElement checkbox() {
+		return driver.findElement(checkbox);
+		}
+	public WebElement submit() {
+		return driver.findElement(submit);
+		}
 	}
-	public WebElement agree() { // returns webelement not xpath
-
-		return driver.findElement(agree);
-
-	}
-	public WebElement clickContinue() { //returns webelement not xpath
-	 
-	  return driver.findElement(cont);
-	  
-	  }
-	 
-
-}

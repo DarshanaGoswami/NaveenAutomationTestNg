@@ -5,8 +5,8 @@
     <classes>
       <class name="TestCase.LoginTestCase">
         <methods>
-          <include name="verifyLogin" invocation-numbers="2"/>
-          <include name="launchBrowserandURL"/>
+          <include name="LaunchBrowserandUrl"/>
+          <include name="Login"/>
         </methods>
       </class> <!-- TestCase.LoginTestCase -->
     </classes>

@@ -11,46 +11,41 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseClass {
 
-	public WebDriver driver; // global declaration of driver
-	public Properties prop; //global declaration of properties
-	
-	public void initializeDriver() throws IOException { // method to initialize
+	public WebDriver driver;
+	public Properties prop;
 
-		// to read the data from data.properties
-		FileInputStream fs = new FileInputStream
-				(System.getProperty("user.dir")+"\\src\\main\\java\\Resources\\data.properties");
+	public void initializeDriver() throws IOException {
 
-		// access data.properties
+		FileInputStream fs = new FileInputStream(
+				"C:\\Users\\darsh\\eclipse-workspace\\SeleniumTestngFinal\\src\\main\\java\\Resources\\data.properties");
+
 		prop = new Properties();
 		prop.load(fs);
 
-		String browserName = prop.getProperty("browser");
+		String browsername = prop.getProperty("browser");
 
-		if (browserName.equalsIgnoreCase("chrome")) {
-
+		if (browsername.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
-		} else if (browserName.equalsIgnoreCase("firefox")) {
-
+		} else if (browsername.equalsIgnoreCase("Firefox")) {
 			driver = new FirefoxDriver();
-		} else if (browserName.equalsIgnoreCase("edge")) {
-
+		} else if (browsername.equalsIgnoreCase("Edge")) {
 			driver = new EdgeDriver();
-
+		} else {
+			System.out.println("please choose proper driver");
 		}
-
-		else {
-
-			System.out.println("please choose proper browser");
-		}
-
 	}
-	
+
 	@BeforeMethod
-	public void launchBrowserandURL() throws IOException {
-		
-		initializeDriver();
-		driver.get(prop.getProperty("url"));
-		
-	}
+	public void LaunchBrowserandUrl() throws IOException {
+		// driver.get("https://login.salesforce.com/"); this is also visible so we have
+		// to put this url in data properties file andd then we have to acces in base
+		// class
+		// driver.get(prop.getProperty("URL"));
 
+		initializeDriver();
+		driver.get("https://naveenautomationlabs.com/opencart/"); // this is also visible so we have to put this url in
+																	// data properties file andd then we have to acces
+																	// in base class
+		// driver.get(prop.getProperty("URL"));
+	}
 }
